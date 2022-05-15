@@ -20,7 +20,8 @@
     "multer": "^1.4.3",
     "nodemailer": "^6.6.5",
     "pdfkit-table": "^0.1.54",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "supertest": "^6.2.3"
   },
   "devDependencies": {
     "supertest": "^6.2.3"
