@@ -1,0 +1,30 @@
+div.modal.fade#signup_modal
+  div.modal-dialog.modal-lg.modal-dialog-centered
+    div.modal-content
+      div.modal-body
+        div.row.p-3
+          div.col-md-6.d-flex.justify-content-center.align-items-center
+            img(src="images/signup.svg" alt="signup" width="100%")
+          div.col-md-6
+            h3.display-5.m-0.font-weight-bold Sign Up
+            hr.w-25.float-left.pt-1.bg-primary.rounded-lg.mb-4
+            form.signup-form
+              div.form-group.mb-4 
+                input(type="text" name="company_name" placeholder="Type your company name here" required).form-control.py-4.company-name
+                small.company-name-error.text-danger 
+              div.form-group.mb-4 
+                input(type="email" name="email" placeholder="Type your email here" required).form-control.py-4.company-email
+                small.company-email-error.text-danger 
+              div.form-group.mb-4 
+                input(type="number" name="phone" placeholder="Type your phone number here" required).form-control.py-4.company-phone
+                small.company-phone-error.text-danger 
+              div.form-group.mb-4 
+                input(type="password" name="password" placeholder="Type your password here" required).form-control.py-4 
+              div.form-group.mb-4 
+                button(style="background:#377dff;" type="submit").btn.btn-block.text-white.font-weight-bold.py-2.signup_btn Sign Up
+                button(style="background:#377dff;" disabled type="button").btn.btn-block.text-white.font-weight-bold.py-2.d-none.signup_loading_btn
+                  span.spinner-border.spinner-border-sm.mr-2
+                  span Please Wait...
+                  
+            p Already have an account? 
+              a(href="#")#login_request_btn Login 

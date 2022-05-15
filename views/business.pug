@@ -1,0 +1,20 @@
+extends profile 
+
+block append head 
+  //- link(rel="stylesheet", href="stylesheets/client.css")
+  //- script(src="javascripts/client.js") 
+
+block content 
+  p.medium-font.p-0 Companies
+  div.card.container-fluid.border-0
+    div.card-body
+      table.table.my-4 
+        thead 
+          tr 
+            th Company Name 
+            th Email 
+            th Phone 
+            th Status 
+            th Created At 
+            th Action
+  .tmp 

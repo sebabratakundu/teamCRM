@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="/bootstrap/bootstrap.min.css")
+    link(rel="stylesheet" href="/bootstrap/animate.min.css")
+    script(src="https://sdk.amazonaws.com/js/aws-sdk-2.998.0.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js")
+    script(src="/bootstrap/jquery.min.js")
+    script(src="/bootstrap/popper.min.js")
+    script(src="/bootstrap/bootstrap.min.js")
+    script(src="/javascripts/functions.js") 
+    script(src="/javascripts/invite.js") 
+  body
+    div.row.p-3
+          div.col-md-4
+          div.col-md-4
+            .text-center 
+              if companyLogo
+                img(src=companyLogo alt=companyName width="100")
+              else 
+                img(src="https://img.icons8.com/clouds/100/000000/company.png" alt=companyName width="100")
+              h2.display-6.text-capitalize.font-weight-bold=companyName
+            br
+            br
+            ul.d-none.error-msg-box 
+              li.error-msg.text-danger
+            form.client-form
+              h3 Hi, 
+                span=name
+              p.mb-4 Please confirm your password to continue using our application. thanks
+              input(type="hidden" value=id name="uid")
+              input(type="hidden" value=token name="token")
+              div.form-group.mb-4 
+                input(type="password" name="password" placeholder="Type your password here" required).form-control.py-4 
+              div.form-group.mb-4 
+                button(type="submit" style="background:#377dff;").btn.btn-block.text-white.font-weight-bold.py-2.confirm_btn Confirm
+                button(style="background:#377dff;" disabled).btn.btn-block.text-white.font-weight-bold.py-2.d-none.confirm_loading_btn
+                  span.spinner-border.spinner-border-sm.mr-2
+                  span Please Wait...
+          div.col-md-4

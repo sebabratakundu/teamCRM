@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Profile
+    include bootstrap
+    block head
+      script(src="https://sdk.amazonaws.com/js/aws-sdk-2.998.0.min.js")
+      link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+      link(rel="stylesheet", href="stylesheets/profile.css")
+      script(src="javascripts/functions.js") 
+      script(src="javascripts/profile.js") 
+      script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js")
+  body(style="background:#f2f2f2;") 
+    div.main  
+      div.sidenav.sidenav-open.py-3
+        .profile-box.d-flex.flex-column.align-items-center
+          button(style="width:80px;height:80px;").btn.btn-primary.mb-3.rounded-circle.border-none.companyImageBtn.companyImage
+            i(style="font-size:40px").fa.fa-building 
+          h4.text-white.text-center.companyName 
+          p.text-light.companyEmail
+        .sidemenu-box 
+          
+      div.section.section-open
+        nav.navbar.navbar-expand-sm.bg-white
+          button.btn.toggle-sidenav-btn 
+            i.fa.fa-bars
+          ul.navbar-nav.ml-auto.profile-nav-menu 
+        div.px-4.py-3
+          block content

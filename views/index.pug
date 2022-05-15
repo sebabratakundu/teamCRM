@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    include bootstrap
+    script(src="javascripts/index.js") 
+  body(style="background:#f7faff")
+    nav.navbar.navbar-expand-sm.shadow-sm.py-3
+      div.container
+        img(src="images/logo.svg", alt="logo" width="80")
+        ul.navbar-nav.ml-auto
+          li 
+            a(href="#" data-target="#login_modal" data-toggle="modal").btn Login 
+          li 
+            a(href="#" style="background:#377dff" data-target="#signup_modal" data-toggle="modal").btn.text-white Register
+    div.container.py-5
+      h1.display-1 Leadership
+      p.text-uppercase an app to handle your team
+      button(style="background:#377dff").btn.text-white Try Demo
+      img(src="images/communicating-men.svg", alt="hero banner" width="50%").float-right
+      include signup
+      include login
