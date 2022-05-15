@@ -26,7 +26,7 @@ router.post("/",async (req,res)=>{
       domain : req.get("origin"),
       endpoint : req.originalUrl
     }
-    console.log(userInfo);
+
     const userToken = await tokenService.createCustomToken(userInfo,expiresIn);
 
     // requrest user api

@@ -53,6 +53,8 @@ function signup(form){
       $(".signup_btn").addClass("d-none");
     },
     success : function(response){
+      console.log(response);
+
       $(".signup_loading_btn").addClass("d-none");
       $(".signup_btn").removeClass("d-none");
       if(response.isUserCreated){
