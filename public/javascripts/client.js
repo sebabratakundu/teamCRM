@@ -280,7 +280,6 @@ $(document).on("click",".delete-client-btn",async function(){
       removeElement(parentRow,2000);
   
     }catch(error){
-      console.log(error);
       new sweetAlert({
         title : "Sorry",
         message : error.responseJSON.message,
@@ -323,7 +322,6 @@ $(document).on("click",".share-client-btn",async function(){
     $(this).tooltip('hide')
     .attr('data-original-title', "copied!")
     .tooltip('show');
-    console.log("clicked");
     setTimeout(()=>{
       $("i",".copy-link-btn").removeClass("fa-check");
       $("i",".copy-link-btn").addClass("fa-copy");
@@ -535,8 +533,6 @@ async function exportData(clients){
             loader_btn : ".tmp",
             submit_btn : ".tmp"
           })
-  
-          console.log(deleteRes);
         }catch(error){
           console.log(error.responseJSON);
         }

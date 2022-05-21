@@ -4,11 +4,14 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Access Denide
+		title Not Found
 		include bootstrap
 		link(rel="stylesheet", href="stylesheets/style.css")
 	body(style="height: 100vh; background: #f2f2f2;").d-flex.flex-column.justify-content-center.align-items-center
-		h1.display-1.text-danger 403
-		p(style="font-size: 20px;").text-uppercase forbidden
+		h1.display-1.text-danger
+			span 4
+			i.fa.fa-question-circle-o.fa-spin.mx-2
+			span 4
+		p(style="font-size: 20px;") Opps! page not found
 		button.btn.btn-primary
 			a(href="/").text-decoration-none.text-white Back to Home

@@ -1,0 +1,33 @@
+extends profile
+
+block append head
+	link(rel="stylesheet", href="stylesheets/client.css")
+	script(src="javascripts/dashboard.js")
+	script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+
+block content
+	- const skeletons = [1,1,1,1,1];
+	p.medium-font.p-0 Clients
+	div.container-fluid.border-0
+		div.row.mb-5
+			div.col-lg-4
+				div.card.position-relative
+					div.card-body.pt-2.p-0
+						#sales
+			div.col-lg-4.my-3.my-lg-0
+				div.card.position-relative
+					div.card-body.pt-2.p-0
+						#expense
+			div.col-lg-4
+				div.card.position-relative
+					div.card-body.pt-2.p-0
+						#profit
+		div.row
+			div.col-lg-6.mb-3.mb-lg-0
+				div.card
+					div.card-body
+						#line-chart
+			div.col-lg-6
+				div.card
+					div.card-body
+						#col-chart

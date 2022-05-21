@@ -56,7 +56,7 @@ function signup(form){
       $(".signup_loading_btn").addClass("d-none");
       $(".signup_btn").removeClass("d-none");
       if(response.isUserCreated){
-        window.location = "/client";
+        window.location = "/dashboard";
       }else{
         console.log(response);
       }
@@ -86,12 +86,11 @@ function login(form){
       $(".login_btn").addClass("d-none");
     },
     success : function(response){
-      console.log(response);
       $(".login_loading_btn").addClass("d-none");
       $(".login_btn").removeClass("d-none");
       if(response.isLogged){
         if(response.role == "admin"){
-          window.location = "/client";
+          window.location = "/dashboard";
         }else if(response.role == "client"){
           window.location = "/business";
         }

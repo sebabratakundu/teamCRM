@@ -1,0 +1,31 @@
+{
+	"admin" : [
+		{
+			"label" : "dashboard",
+			"icon" : "fa fa-tachometer",
+			"link" : "/dashboard",
+			"color" : "icon-btn-primary"
+		},
+		{
+			"label" : "clients",
+			"icon" : "fa fa-user-secret",
+			"link" : "/client",
+			"color" : "icon-btn-dark"
+		},
+		{
+			"label": "logout",
+			"icon": "fa fa-sign-out",
+			"link": "/logout",
+			"color" : "icon-btn-danger"
+		}
+	],
+	"client" : [
+		{
+			"label": "logout",
+			"icon": "fa fa-sign-out",
+			"link": "/logout",
+			"color" : "icon-btn-danger"
+		}
+	],
+	"team" : ""
+}

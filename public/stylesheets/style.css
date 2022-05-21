@@ -1,8 +1,25 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+.hero-text {
+	font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+	.hero-text {
+		font-size: 3rem;
+	}
+}
+
+@media (max-width: 425px) {
+	.hero-text {
+		font-size: 2rem;
+	}
 }

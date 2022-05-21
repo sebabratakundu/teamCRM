@@ -1,95 +1,97 @@
-extends profile 
+extends profile
 
 block append head 
-  link(rel="stylesheet", href="stylesheets/client.css")
-  script(src="javascripts/client.js") 
+	link(rel="stylesheet", href="stylesheets/client.css")
+	script(src="javascripts/client.js")
 
 block content 
-  - const skeletons = [1,1,1,1,1];
-  p.medium-font.p-0 Clients
-  div.card.container-fluid.border-0
-    div.card-body
-      div.row 
-        .col-md-3
-          .d-flex.align-items-center 
-            button(data-toggle="toolip" title="Click to change filter" onclick="changeFilter(this)").btn.icon-btn-info.mr-2.filter-change-btn 
-              i.fa.fa-cog.fa-spin
-            input(type="text" placeholder="Filter by Name").form-control.input.filter.filter-by-name 
-        .col-md-6 
-        .col-md-3.d-flex.justify-content-end
-          .dropdown 
-            button(data-toggle="dropdown").btn.btn-light.btn-design.mr-4.text-capitalize.dropdown-toggle export 
-            .dropdown-menu.mt-2 
-              a(href="#").dropdown-item.export-to-pdf-btn PDF 
-              a(href="#").dropdown-item.export-to-pdf-all-btn PDF (ALL)
-              a(href="#").dropdown-item.export-to-excel-btn Excel
-              a(href="#").dropdown-item.export-to-csv-btn CSV
-          button#add-client-btn.btn.btn-primary.btn-design.text-capitalize add client 
-      table.table.my-4 
-        thead 
-          tr 
-            th Client 
-            th Email 
-            th Phone 
-            th Status 
-            th Created At 
-            th Action
-        tbody 
-          each skeleton of skeletons
-            tr 
-              td(colspan="6").py-4
-                div.d-flex.align-items-center
-                  div.client_pic.mr-4.skeleton  
-                    .skeleton-loader
-                  div.flex-grow-1
-                    .client_title.mb-3.rounded-lg.skeleton 
-                      .skeleton-loader 
-                    .client_subtitle.rounded-lg.skeleton 
-                      .skeleton-loader 
-      ul.pagination.client-pagination.justify-content-end
+	- const skeletons = [1,1,1,1,1];
+	p.medium-font.p-0 Clients
+	div.card.container-fluid.border-0
+		div.card-body
+			div.row
+				.col-lg-3
+					.d-flex.align-items-center
+						button(data-toggle="toolip" title="Click to change filter" onclick="changeFilter(this)").btn.icon-btn-info.mr-2.filter-change-btn
+							i.fa.fa-cog.fa-spin
+						input(type="text" placeholder="Filter by Name").form-control.input.filter.filter-by-name
+				.col-lg-6.my-2.my-lg-0
+				.col-lg-3.d-flex.justify-content-between.justify-content-lg-end
+					.dropdown
+						button(data-toggle="dropdown").btn.btn-light.mr-4.text-capitalize.dropdown-toggle export
+						.dropdown-menu.mt-2
+							a(href="#").dropdown-item.export-to-pdf-btn PDF
+							a(href="#").dropdown-item.export-to-pdf-all-btn PDF (ALL)
+							a(href="#").dropdown-item.export-to-excel-btn Excel
+							a(href="#").dropdown-item.export-to-csv-btn CSV
+					button#add-client-btn.btn.btn-primary.text-capitalize add client
+			div.table-responsive
+				table.table.my-4
+					thead
+						tr
+							th Client
+							th Email
+							th Phone
+							th Status
+							th Created At
+							th Action
+					tbody
+						each skeleton of skeletons
+							tr
+								td(colspan="6").py-4
+									div.d-flex.align-items-center
+										div.client_pic.mr-4.skeleton
+											.skeleton-loader
+										div.flex-grow-1
+											.client_title.mb-3.rounded-lg.skeleton
+												.skeleton-loader
+											.client_subtitle.rounded-lg.skeleton
+												.skeleton-loader
 
-  .modal.fade#add-client-modal 
-    .modal-dialog.modal-dialog-centered
-      .modal-content 
-        .modal-body.px-4.py-3
-          h4.medium-font.mb-4 Client Details 
-          ul.error-msg-box
-          form#client-form
-            input(type="hidden", name="token")
-            .form-group.mb-4 
-              input(type="text" placeholder="Client Name" name="clientName").form-control.input 
-            .form-group.mb-4 
-              input(type="email" placeholder="Client Email" name="clientEmail").form-control.input.clientEmail
-              small.clientEmail-error.text-danger 
-            .form-group.mb-4 
-              input(type="text" placeholder="Client Country" name="clientCountry").form-control.input 
-            .form-group.mb-4
-              .input-group.clientPhone 
-                .input-group-prepend.mr-2
-                  button(type="button").btn.btn-light
-                    span.country-code +91
-                input(type="number" placeholder="Client Phone" name="clientPhone").form-control.input
-              small.clientPhone-error.text-danger 
-            .form-group 
-              button(type="submit").btn.btn-primary.btn-design.btn-block.add_client_btn Add Client  
-              button(disabled type="button").btn.btn-block.btn-primary.d-none.add_client_loading_btn
-                  span.spinner-border.spinner-border-sm.mr-2
-                  span Please Wait...
-  .modal.fade#share-client-modal 
-    .modal-dialog.modal-dialog-centered
-      .modal-content 
-        .modal-body.px-4.pt-4
-          h4.medium-font.mb-4 Share Client 
-          ul.error-msg-box
-          .form-group.mb-4 
-              input(type="text" name="inviteLink").form-control.input 
-          div.d-flex.mb-4 
-            button(data-toggle="tootip" title="copy").btn.icon-btn-info.mr-2.copy-link-btn 
-              i.fa.fa-copy
-            button(data-toggle="tootip" title="email").btn.icon-btn-warning.mr-2.send-email-btn 
-              i.fa.fa-envelope
-            button(data-toggle="tootip" title="whatsapp").btn.icon-btn-success.send-wp-btn 
-              i.fab.fa-whatsapp
-        .progressive-loading.d-none 
-          .moving-progress
-  .tmp 
+	ul.pagination.client-pagination.justify-content-end
+
+	.modal.fade#add-client-modal
+		.modal-dialog.modal-dialog-centered
+			.modal-content
+				.modal-body.px-4.py-3
+					h4.medium-font.mb-4 Client Details
+					ul.error-msg-box
+					form#client-form
+						input(type="hidden", name="token")
+						.form-group.mb-4
+							input(type="text" placeholder="Client Name" name="clientName").form-control.input
+						.form-group.mb-4
+							input(type="email" placeholder="Client Email" name="clientEmail").form-control.input.clientEmail
+							small.clientEmail-error.text-danger
+						.form-group.mb-4
+							input(type="text" placeholder="Client Country" name="clientCountry").form-control.input
+						.form-group.mb-4
+							.input-group.clientPhone
+								.input-group-prepend.mr-2
+									button(type="button").btn.btn-light
+										span.country-code +91
+								input(type="number" placeholder="Client Phone" name="clientPhone").form-control.input
+							small.clientPhone-error.text-danger
+						.form-group
+							button(type="submit").btn.btn-primary.btn-design.btn-block.add_client_btn Add Client
+							button(disabled type="button").btn.btn-block.btn-primary.d-none.add_client_loading_btn
+								span.spinner-border.spinner-border-sm.mr-2
+								span Please Wait...
+	.modal.fade#share-client-modal
+		.modal-dialog.modal-dialog-centered
+			.modal-content
+				.modal-body.px-4.pt-4
+					h4.medium-font.mb-4 Share Client
+					ul.error-msg-box
+					.form-group.mb-4
+						input(type="text" name="inviteLink").form-control.input
+					div.d-flex.mb-4
+						button(data-toggle="tootip" title="copy").btn.icon-btn-info.mr-2.copy-link-btn
+							i.fa.fa-copy
+						button(data-toggle="tootip" title="email").btn.icon-btn-warning.mr-2.send-email-btn
+							i.fa.fa-envelope
+						button(data-toggle="tootip" title="whatsapp").btn.icon-btn-success.send-wp-btn
+							i.fab.fa-whatsapp
+				.progressive-loading.d-none
+					.moving-progress
+	.tmp

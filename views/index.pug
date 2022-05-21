@@ -1,25 +1,37 @@
 doctype html
-html(lang="en")
+html.h-100(lang="en")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
     include bootstrap
+    link(rel="stylesheet" href="stylesheets/style.css")
     script(src="javascripts/index.js") 
-  body(style="background:#f7faff")
-    nav.navbar.navbar-expand-sm.shadow-sm.py-3
+  body.h-100(style="background:#f7faff")
+    nav(style="background: #f7faff;").navbar.navbar-expand-sm.shadow-sm.py-3.sticky-top
       div.container
-        img(src="images/logo.svg", alt="logo" width="80")
-        ul.navbar-nav.ml-auto
-          li 
-            a(href="#" data-target="#login_modal" data-toggle="modal").btn Login 
-          li 
-            a(href="#" style="background:#377dff" data-target="#signup_modal" data-toggle="modal").btn.text-white Register
-    div.container.py-5
-      h1.display-1 Leadership
-      p.text-uppercase an app to handle your team
-      button(style="background:#377dff").btn.text-white Try Demo
-      img(src="images/communicating-men.svg", alt="hero banner" width="50%").float-right
+        a.navbar-brand
+          img(src="images/logo.svg", alt="logo" width="80")
+
+        button(type="button" data-toggle="collapse" data-target="#menu").navbar-toggler.btn
+          i.fa.fa-bars
+
+        div.collapse.navbar-collapse#menu
+          ul.navbar-nav.ml-auto
+            li.nav-item.mr-0.mr-sm-2
+              a(href="#" data-target="#login_modal" data-toggle="modal").nav-link.btn Login
+            li.nav-item.ml-0.ml-sm-2
+              a(href="#" style="background:#377dff" data-target="#signup_modal" data-toggle="modal").nav-link.btn.text-white Register
+    div(style="min-height: calc(100% - 70px);").container.d-flex.align-items-start.align-items-sm-center.mt-5.mt-sm-0
+      .row
+        .col-md-6.mb-5.mb-sm-0
+          h4.font-weight-bold.text-primary.text-uppercase team crm
+          h1.hero-text.font-weight-bold.text-dark.my-4 Grow your Business With #1 CRM
+          p.text-secondary.mb-5 A powerful app to manage your teams
+          button(style="background:#377dff").btn.btn-lg.text-white.mr-2 Try Demo
+          button.btn.btn-outline-primary.btn-lg.ml-2 Book Now
+        .col-md-6
+          img(src="images/team.svg", alt="hero banner" width="100%").float-right
       include signup
       include login

@@ -46,7 +46,6 @@ clientSchema.pre("save",async function(next){
   };
 
   const length = await mongoose.model("Client").countDocuments(query);
-  console.log(length);
   if(length>0){
     const clientEmailError = {
       type : "duplicate",

@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const accessController = require("../controller/access.controller");
 
-router.get("/",(req,res)=>{
-  accessController.roleAccess(req,res);
+router.get("/menu", (req, res) => {
+	accessController.getMenu(req, res);
 })
 
 module.exports = router;

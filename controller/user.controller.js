@@ -8,7 +8,7 @@ const createUser = async (req,res)=>{
       // auto login during signup
       const tokenData = {
         body : token.data.data,
-        domain : req.get("origin") || `https://${req.get("host")}`,
+        domain : req.get("origin") || `http://${req.get("host")}`,
         endpoint  : req.originalUrl
       }
       const newToken = await tokenService.createCustomToken(tokenData,86400);
