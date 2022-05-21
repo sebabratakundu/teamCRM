@@ -58,7 +58,7 @@ const verifyToken = (req)=>{
 const refreshToken = async (data,req)=>{
   const tokenData = {
     body : data,
-    domain : req.get("origin") || `http://${req.get("host")}`,
+    domain : req.get("origin") || `https://${req.get("host")}`,
     endpoint  : req.originalUrl
   }
   const token = await createCustomToken(tokenData,86400);

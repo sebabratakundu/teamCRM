@@ -14,7 +14,7 @@ const generateToken = async (req,res)=>{
 
     const request = {
       body,
-      domain : `http://${req.headers.host}`,
+      domain : `https://${req.headers.host}`,
       endpoint : req.baseUrl
     }
 
