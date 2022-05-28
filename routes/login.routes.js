@@ -11,8 +11,7 @@ const roles = {
   },
   client : function(req,res,token,expiresIn){
     clientLogin(req,res,token,expiresIn);
-  },
-  team : "teamLogin"
+  }
 }
 
 // login
@@ -21,10 +20,11 @@ router.post("/",async (req,res)=>{
   // examine role
   const role = req.body.role;
   if(!roles.hasOwnProperty(role)){
-    res.status(400);
-    res.json({
-      message : "bad request"
-    })
+    res.status(400)
+        .json({
+          message: 'bad request'
+        })
+        .render('access-denide');
   }
 
   // generate token
