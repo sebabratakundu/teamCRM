@@ -15,19 +15,19 @@ html(lang="en")
 			script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js")
 	body(style="background:#f2f2f2;")
 		div.main
-			div.sidenav.sidenav-open.py-3
-				.profile-box.d-flex.flex-column.align-items-center.overflow-hidden
+			div.sidenav.sidenav-open.py-3.overflow-hidden
+				.profile-box.d-flex.flex-column.align-items-center
 					button.btn.btn-primary.mb-3.rounded-circle.border-none.companyImageBtn.companyImage.d-flex.justify-content-center.align-items-center
 						i.fa.fa-building.companyIcon.d-none.d-lg-inline
 						span.companyNickname.d-inline.d-lg-none
 					h4.text-white.text-center.companyName.d-none.d-lg-block
 					p.text-light.companyEmail.d-none.d-lg-block
-				.sidemenu-box.px-3
+				.sidemenu-box.d-flex.flex-column.align-items-center.px-0.px-lg-3
 
 			div.section.section-open
 				nav.navbar.navbar-expand-sm.bg-white
 					button.btn.toggle-sidenav-btn
 						i.fa.fa-bars
-					ul.navbar-nav.ml-auto.profile-nav-menu
+					ul.navbar-nav.collapse.navbar-collapse.profile-nav-menu.justify-content-end
 				div.px-4.py-3.overflow-hidden
 					block content

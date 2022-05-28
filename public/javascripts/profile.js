@@ -54,11 +54,20 @@ function createMenu(menus) {
     </button>
     </li>`;
 
-		sideMenu += `<button class="btn btn-block btn-primary my-3">
+		let screenSize = window.matchMedia("(max-width: 768px)");
+		if (screenSize.matches) {
+			sideMenu += `<button class="btn p-0 mb-2">
+							<a href="${menu.link}" class="nav-link ${menu.color}">
+								<i class="${menu.icon}"></i>
+							</a>
+						</button>`;
+		} else {
+			sideMenu += `<button class="btn btn-block btn-primary my-3">
 						<a href="${menu.link}" class="text-decoration-none text-capitalize text-white">
 							${menu.label}
 						</a>
 					</button>`;
+		}
 	}
 
 	$(".profile-nav-menu").html(topMenu);
