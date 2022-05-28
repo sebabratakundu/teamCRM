@@ -23,8 +23,7 @@ router.post("/",async (req,res)=>{
     res.status(400)
         .json({
           message: 'bad request'
-        })
-        .render('access-denide');
+        });
   }
 
   // generate token
