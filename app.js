@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const useSSL = require('express-enforces-ssl');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -35,9 +36,8 @@ app.use(multipart);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-	req.secure ? next() : req.redirect(`https://${req.get('host')}${req.url}`);
-});
+app.enable('trust proxy');
+app.use(useSSL());
 
 app.use('/', indexRouter);
 app.use('/api/signup', signupRouter);
