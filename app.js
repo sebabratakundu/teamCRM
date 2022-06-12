@@ -35,6 +35,14 @@ app.use(multipart);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+	if (!req.secure) {
+		res.redirect(`https://${req.get('host')}`);
+	}
+
+	next();
+});
+
 app.use('/', indexRouter);
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
