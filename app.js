@@ -36,11 +36,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-	if (!req.secure) {
-		res.redirect(`https://${req.get('host')}`);
-	}
-
-	next();
+	req.secure ? next() : req.redirect(`https://${req.get('host')}${req.url}`);
 });
 
 app.use('/', indexRouter);
