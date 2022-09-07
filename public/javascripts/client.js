@@ -72,7 +72,7 @@ $(document).on("submit",".add-client-form",async function(e){
       $("tbody",".table").append(content);
     }
 
-    createPagination();
+    createPagination('client');
 
   }catch(error){
     const errors = error.responseJSON;
@@ -98,12 +98,12 @@ $(document).on("submit",".add-client-form",async function(e){
 document.addEventListener("DOMContentLoaded",async ()=>{
 
   // check for clients
-  const isAnyClientExists = await getClientsCount();
+  const isAnyClientExists = await getEntitiesCount('client');
   if(isAnyClientExists){
     // show clients
     showClients();
     // create pagination
-    createPagination()
+    createPagination('client')
   }else{
     $("tbody",".table").html("<tr class='no-data-txt'><td colspan='6' class='text-center'><p class='badge badge-info'>No data found!</p></td></tr>");
   }
@@ -373,55 +373,6 @@ $(document).on("click",".share-client-btn",async function(){
 })
 
 // end client action
-
-// get page number
-function getPageNumber(){
-  const currentPage = location.href;
-  if(currentPage.indexOf("?") != -1){
-    if(currentPage.split("?")[1].indexOf("page") != -1){
-      return Number(currentPage.split("?")[1].split("=")[1]);
-    }
-    return 1;
-  }
-  return 1;
-}
-
-// client count
-async function getClientsCount(){
-  try{
-    const response = await ajax({
-      method : "GET",
-      url :"/client/total",
-      submit_btn : ".tmp",
-      loader_btn : ".tmp"
-    })
-  
-    return response.data;
-  }catch(error){
-    return false;
-  }
-}
-
-// pagination
-async function createPagination(noOfItemPerPage=5){
-  let pageNumber = getPageNumber();
-  let content = `<li class='page-item ${pageNumber == 1 ? 'disabled' : '' }'><a href='/client?page=${pageNumber>1 ? pageNumber-1 : 1}' class='page-link'>Previous</a></li>`;
-
-  const dataCount = await getClientsCount();
-  let pageCount = (dataCount/noOfItemPerPage);
-  if(pageCount.toString().indexOf(".") != -1){
-    pageCount = Math.trunc(pageCount += 1);
-  }
-  for (let i = 1; i <= pageCount; i++) {
-    content += `<li class="page-item">
-    <a href="/client?page=${i}" class="page-link">${i}</a>
-    </li>`;
-  }
-  content += `<li class='page-item ${pageNumber === pageCount ? 'disabled' : ''}'><a href='/client?page=${pageNumber < pageCount ? pageNumber+1 : pageCount}' class='page-link'>Next</a></li>`;
-  $(".client-pagination").html(content);
-  $(".page-item").eq(pageNumber).addClass("active");
-}
-
 
 // change search filter
 function changeFilter(elm){

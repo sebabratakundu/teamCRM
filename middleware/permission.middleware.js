@@ -1,15 +1,5 @@
 const tokenService = require("../services/token.service");
-
-const roleRoutePermission = {
-	admin: [
-		"/client",
-		"/dashboard",
-	],
-	client: [
-		"/business"
-	],
-	team: []
-}
+const viewPermission = require("../jsonApi/permission/view.json")
 
 
 const canView = (req, res, next) => {
@@ -17,11 +7,11 @@ const canView = (req, res, next) => {
 	if (token.isVerified) {
 		const role = token.data.role;
 		let route = req.originalUrl;
-		if (route.indexOf("?") != -1) {
+		if (route.indexOf("?") !== -1) {
 			route = route.split("?")[0];
 		}
 
-		if (roleRoutePermission[role].indexOf(route) != -1) {
+		if (viewPermission[role].indexOf(route) !== -1) {
 			next();
 		} else {
 			res.status(403);

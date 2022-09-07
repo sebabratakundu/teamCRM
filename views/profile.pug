@@ -4,7 +4,7 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Profile
+		block title
 		include bootstrap
 		block head
 			script(src="https://sdk.amazonaws.com/js/aws-sdk-2.998.0.min.js")
@@ -20,7 +20,7 @@ html(lang="en")
 					button.btn.btn-primary.mb-3.rounded-circle.border-none.companyImageBtn.companyImage.d-flex.justify-content-center.align-items-center
 						i.fa.fa-building.companyIcon.d-none.d-lg-inline
 						span.companyNickname.d-inline.d-lg-none
-					h4.text-white.text-center.companyName.d-none.d-lg-block
+					h5.text-white.text-center.companyName.d-none.d-lg-block
 					p.text-light.companyEmail.d-none.d-lg-block
 				.sidemenu-box.d-flex.flex-column.align-items-center.px-0.px-lg-3
 

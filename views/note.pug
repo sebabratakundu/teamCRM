@@ -1,0 +1,33 @@
+extends profile
+
+block title
+	title #{title}
+
+block append head
+	link(href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css")
+	script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js")
+	script(src="javascripts/note.js")
+
+block content
+	p.medium-font.p-0 #{title}
+		div.card.container-fluid.border-0.p-0
+			div.card-body
+				div.row.mb-5
+					div.col-lg-4
+						div.mb-3
+							.input-group
+								input(type="text" name="noteName" form="note-form" placeholder="type your note name").form-control.input
+								.input-group-append
+									input(type="submit" form="note-form" value="Save").btn.btn-primary.btn-design.save-note-btn
+									button(disabled type="button").btn.btn-block.btn-primary.d-none.save-note-loading-btn
+										span.spinner-border.spinner-border-sm.mr-2
+											span Please Wait...
+							.note-error.text-danger
+						div
+							h4 My Notes
+							ul.note-list.list-group
+							ul.pagination.note-pagination.justify-content-end
+					div.col-lg-8
+						form#note-form
+							input(type="hidden" name="token")
+							textarea(name="note")#editor

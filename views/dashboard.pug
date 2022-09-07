@@ -1,5 +1,8 @@
 extends profile
 
+block title
+	title #{title}
+
 block append head
 	link(rel="stylesheet", href="stylesheets/client.css")
 	script(src="javascripts/dashboard.js")
@@ -7,8 +10,8 @@ block append head
 
 block content
 	- const skeletons = [1,1,1,1,1];
-	p.medium-font.p-0 Dashboard
-	div.container-fluid.border-0
+	p.medium-font.p-0 #{title}
+	div.container-fluid.border-0.p-0
 		div.row.mb-5
 			div.col-lg-4
 				div.card.position-relative

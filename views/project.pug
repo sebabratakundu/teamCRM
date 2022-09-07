@@ -1,0 +1,51 @@
+extends profile
+
+block title
+	title #{title}
+
+block append head
+	link(rel="stylesheet", href="stylesheets/client.css")
+	script(src="javascripts/dashboard.js")
+	script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+
+block content
+	p.medium-font.p-0 #{title}
+		div.card.container-fluid.border-0
+			div.card-body
+				div.row
+					.col-lg-3
+						.d-flex.align-items-center
+							button(data-toggle="toolip" title="Click to change filter" onclick="changeFilter(this)").btn.icon-btn-info.mr-2.filter-change-btn
+								i.fa.fa-cog.fa-spin
+							input(type="text" placeholder="Filter by Name").form-control.input.filter.filter-by-name
+					.col-lg-6.my-2.my-lg-0
+					.col-lg-3.d-flex.justify-content-between.justify-content-lg-end
+						.dropdown
+							button(data-toggle="dropdown").btn.btn-light.mr-4.text-capitalize.dropdown-toggle export
+							.dropdown-menu.mt-2
+								a(href="#").dropdown-item.export-to-pdf-btn PDF
+								a(href="#").dropdown-item.export-to-pdf-all-btn PDF (ALL)
+								a(href="#").dropdown-item.export-to-excel-btn Excel
+								a(href="#").dropdown-item.export-to-csv-btn CSV
+						button#add-client-btn.btn.btn-primary.text-capitalize add client
+				div.table-responsive
+					table.table.my-4
+						thead
+							tr
+								th Client
+								th Email
+								th Phone
+								th Status
+								th Created At
+								th Action
+						tbody
+								tr
+									td(colspan="6").py-4
+										div.d-flex.align-items-center
+											div.client_pic.mr-4.skeleton
+												.skeleton-loader
+											div.flex-grow-1
+												.client_title.mb-3.rounded-lg.skeleton
+													.skeleton-loader
+												.client_subtitle.rounded-lg.skeleton
+													.skeleton-loader

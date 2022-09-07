@@ -1,12 +1,15 @@
 extends profile
 
+block title
+	title #{title}
+
 block append head 
 	link(rel="stylesheet", href="stylesheets/client.css")
 	script(src="javascripts/client.js")
 
 block content 
 	- const skeletons = [1,1,1,1,1];
-	p.medium-font.p-0 Clients
+	p.medium-font.p-0 #{title}
 	div.card.container-fluid.border-0
 		div.card-body
 			div.row

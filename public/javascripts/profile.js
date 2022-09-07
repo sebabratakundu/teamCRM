@@ -4,6 +4,7 @@ $(document).ready(() => {
 	$(".toggle-sidenav-btn").click(() => {
 		toggle("sidenav", "sidenav-open");
 		toggle("section", "section-open");
+		toggle("menu-label", "d-none");
 	});
 	token = getCookieData("authToken");
 	showCompanyDetails();
@@ -45,16 +46,17 @@ async function getMenus() {
 function createMenu(menus) {
 	let topMenu = '';
 	let sideMenu = '';
+	let screenSize = window.matchMedia("(max-width: 768px)");
+
 	for (const menu of menus) {
 		topMenu += `<li class="nav-item">
-    <button class="btn mr-2 p-0">
-      <a href="${menu.link}" class="nav-link ${menu.color}">
-        <i class="${menu.icon}"></i>
-      </a>
-    </button>
-    </li>`;
+						<button class="btn mr-2 p-0">
+						  <a href="${menu.link}" class="nav-link ${menu.color}">
+							<i class="${menu.icon}"></i>
+						  </a>
+						</button>
+					</li>`;
 
-		let screenSize = window.matchMedia("(max-width: 768px)");
 		if (screenSize.matches) {
 			sideMenu += `<button class="btn p-0 mb-2">
 							<a href="${menu.link}" class="nav-link ${menu.color}">
@@ -62,11 +64,10 @@ function createMenu(menus) {
 							</a>
 						</button>`;
 		} else {
-			sideMenu += `<button class="btn btn-block btn-primary my-3">
-						<a href="${menu.link}" class="text-decoration-none text-capitalize text-white">
-							${menu.label}
-						</a>
-					</button>`;
+			sideMenu += `<a href="${menu.link}" class="btn btn-block text-left text-white">
+							<i class="${menu.icon}"></i>&nbsp;
+							<span class="menu-label">${menu.label}</span>
+						</a>`;
 		}
 	}
 

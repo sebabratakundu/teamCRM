@@ -13,6 +13,18 @@
 			"color" : "icon-btn-dark"
 		},
 		{
+			"label" : "projects",
+			"icon" : "fa fa-user-secret",
+			"link" : "/project",
+			"color" : "icon-btn-dark"
+		},
+		{
+			"label" : "notes",
+			"icon" : "fa fa-sticky-note-o",
+			"link" : "/note",
+			"color" : "icon-btn-dark"
+		},
+		{
 			"label": "logout",
 			"icon": "fa fa-sign-out",
 			"link": "/logout",

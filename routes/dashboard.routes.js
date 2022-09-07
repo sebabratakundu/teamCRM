@@ -1,8 +1,9 @@
 const express = require('express');
+const {canView} = require("../middleware/permission.middleware");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-	res.render('dashboard', {title: 'dashboard'});
+router.get('/', canView, (req, res) => {
+	res.render('dashboard', {title: 'Dashboard'});
 });
 
 module.exports = router;

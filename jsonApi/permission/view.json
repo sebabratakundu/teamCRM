@@ -1,0 +1,13 @@
+{
+	"admin": [
+		"/profile",
+		"/client",
+		"/dashboard",
+		"/project",
+		"/note"
+	],
+	"client": [
+		"/business"
+	],
+	"team": []
+}

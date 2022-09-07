@@ -4,7 +4,7 @@ const clientController = require("../controller/client.controller");
 const {canView} = require("../middleware/permission.middleware");
 
 router.get("/", canView, (req, res) => {
-	res.render("client", {title: "clients"});
+	res.render("client", {title: "Clients"});
 });
 
 // get count of clients
