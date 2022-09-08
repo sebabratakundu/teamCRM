@@ -2,9 +2,9 @@
 	"version": 2,
 	"name": "team-crm",
 	"builds": [
-		{ "src": "app.js", "use": "@vercel/node" }
+		{ "src": "app.js", "use": "@now/node" }
 	],
 	"routes": [
-		{ "src": "/(.*)", "dest": "/" }
+		{ "src": "/(.*)", "dest": "app.js" }
 	]
 }
